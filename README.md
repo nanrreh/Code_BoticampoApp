@@ -18,22 +18,27 @@
 
   `php artisan key:generate`
 
+
 -   Ejecutar los siguientes comandos
 
 1. `php artisan migrate`   *genera la estructura de la base de datos.*
 
 2. `php artisan voyager:install`   *establece la configuración base del administrador de contenidos.*
 
-3. `php artisan voyager:import`   *importa las configuraciones del administrador (menús, formularios, validaciones) .*
-
-4. `php artisan voyager:admin –create`  *siguiendo los pasos de la consola se crea el usuario administrador del CMS.*
-
-5. `php artisan serve`   *ejecuta el servidor por defecto en el puerto 8000*.
+3. `php artisan serve`   *ejecuta el servidor por defecto en el puerto 8000*.
 
 
 
 > *Nota: el administrador sera accedido desde la url de despliegue agregando en la raiz del sitio /admin*
 > *Ej: localhost:8000/admin*
+
+> *Nota: La base de datos se encuentra en la carpeta `DB PROJECT/`*
+>
+
+> *Los datos del usuario Administrador son:*
+- *username: admin@localhost.com*
+- *pass: 123456*
+
 
 ## License
 
