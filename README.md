@@ -31,14 +31,17 @@
 
 > *Nota: el administrador sera accedido desde la url de despliegue agregando en la raiz del sitio /admin*
 > *Ej: localhost:8000/admin*
+> 
+> *Base de Datos: La base de datos se encuentra en la carpeta `DB PROJECT/`*
 
-> *Nota: La base de datos se encuentra en la carpeta `DB PROJECT/`*
->
 
 > *Los datos del usuario Administrador son:*
-- *username: admin@localhost.com*
-- *pass: 123456*
+> - *username: admin@localhost.com*
+> - *pass: 123456*
 
+> *Los datos del rol admin recolector son:*
+> - *username: adminrecolector@localhost.com*
+> - *pass: 123456*
 
 ## License
 

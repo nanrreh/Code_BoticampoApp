@@ -197,10 +197,10 @@ insert  into `menu_items`(`id`,`menu_id`,`title`,`url`,`target`,`icon_class`,`co
 (8,1,'Compass','','_self','voyager-compass',NULL,5,12,'2022-11-18 00:21:21','2022-11-18 00:21:21','voyager.compass.index',NULL),
 (9,1,'BREAD','','_self','voyager-bread',NULL,5,13,'2022-11-18 00:21:21','2022-11-18 00:21:21','voyager.bread.index',NULL),
 (10,1,'Settings','','_self','voyager-settings',NULL,NULL,14,'2022-11-18 00:21:21','2022-11-18 00:21:21','voyager.settings.index',NULL),
-(11,1,'Válvulas','','_self',NULL,NULL,NULL,15,'2022-11-18 00:24:26','2022-11-18 00:24:26','voyager.valves.index',NULL),
-(12,1,'Estados','','_self',NULL,NULL,NULL,16,'2022-11-18 00:25:24','2022-11-18 00:25:24','voyager.states.index',NULL),
-(13,1,'Fases','','_self',NULL,NULL,NULL,17,'2022-11-18 00:26:14','2022-11-18 00:26:14','voyager.phases.index',NULL),
-(14,1,'Recolecciones','','_self',NULL,NULL,NULL,18,'2022-11-18 00:27:14','2022-11-18 00:27:14','voyager.harvests.index',NULL);
+(11,1,'Válvulas','','_self','voyager-dashboard','#000000',NULL,15,'2022-11-18 00:24:26','2022-11-18 01:43:37','voyager.valves.index','null'),
+(12,1,'Estados','','_self','voyager-bookmark','#000000',NULL,16,'2022-11-18 00:25:24','2022-11-18 01:44:00','voyager.states.index','null'),
+(13,1,'Fases','','_self','voyager-exclamation','#000000',NULL,17,'2022-11-18 00:26:14','2022-11-18 01:44:13','voyager.phases.index','null'),
+(14,1,'Recolecciones','','_self','voyager-trees','#000000',NULL,18,'2022-11-18 00:27:14','2022-11-18 01:44:27','voyager.harvests.index','null');
 
 /*Table structure for table `menus` */
 
@@ -291,6 +291,7 @@ CREATE TABLE `permission_role` (
 
 insert  into `permission_role`(`permission_id`,`role_id`) values 
 (1,1),
+(1,3),
 (2,1),
 (3,1),
 (4,1),
@@ -306,35 +307,60 @@ insert  into `permission_role`(`permission_id`,`role_id`) values
 (14,1),
 (15,1),
 (16,1),
+(16,3),
 (17,1),
+(17,3),
 (18,1),
+(18,3),
 (19,1),
+(19,3),
 (20,1),
+(20,3),
 (21,1),
 (22,1),
 (23,1),
 (24,1),
 (25,1),
 (26,1),
+(26,3),
 (27,1),
+(27,3),
 (28,1),
+(28,3),
 (29,1),
+(29,3),
 (30,1),
+(30,3),
 (31,1),
+(31,3),
 (32,1),
+(32,3),
 (33,1),
+(33,3),
 (34,1),
+(34,3),
 (35,1),
+(35,3),
 (36,1),
+(36,3),
 (37,1),
+(37,3),
 (38,1),
+(38,3),
 (39,1),
+(39,3),
 (40,1),
+(40,3),
 (41,1),
+(41,3),
 (42,1),
+(42,3),
 (43,1),
+(43,3),
 (44,1),
-(45,1);
+(44,3),
+(45,1),
+(45,3);
 
 /*Table structure for table `permissions` */
 
@@ -458,13 +484,14 @@ CREATE TABLE `roles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `roles_name_unique` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `roles` */
 
 insert  into `roles`(`id`,`name`,`display_name`,`created_at`,`updated_at`) values 
 (1,'admin','Administrator','2022-11-18 00:21:21','2022-11-18 00:21:21'),
-(2,'user','Normal User','2022-11-18 00:21:21','2022-11-18 00:21:21');
+(2,'user','Normal User','2022-11-18 00:21:21','2022-11-18 00:21:21'),
+(3,'Administrador Recolector','Administrador Recolector','2022-11-18 01:38:46','2022-11-18 01:38:46');
 
 /*Table structure for table `settings` */
 
@@ -489,13 +516,13 @@ insert  into `settings`(`id`,`key`,`display_name`,`value`,`details`,`type`,`orde
 (1,'site.title','Site Title','Site Title','','text',1,'Site'),
 (2,'site.description','Site Description','Site Description','','text',2,'Site'),
 (3,'site.logo','Site Logo','','','image',3,'Site'),
-(4,'site.google_analytics_tracking_id','Google Analytics Tracking ID','','','text',4,'Site'),
+(4,'site.google_analytics_tracking_id','Google Analytics Tracking ID',NULL,'','text',4,'Site'),
 (5,'admin.bg_image','Admin Background Image','','','image',5,'Admin'),
-(6,'admin.title','Admin Title','Voyager','','text',1,'Admin'),
-(7,'admin.description','Admin Description','Welcome to Voyager. The Missing Admin for Laravel','','text',2,'Admin'),
+(6,'admin.title','Admin Title','BotiCampoAPP','','text',1,'Admin'),
+(7,'admin.description','Admin Description','Welcome to BoticampoApp.','','text',2,'Admin'),
 (8,'admin.loader','Admin Loader','','','image',3,'Admin'),
 (9,'admin.icon_image','Admin Icon Image','','','image',4,'Admin'),
-(10,'admin.google_analytics_client_id','Google Analytics Client ID (used for admin dashboard)','','','text',1,'Admin');
+(10,'admin.google_analytics_client_id','Google Analytics Client ID (used for admin dashboard)',NULL,'','text',1,'Admin');
 
 /*Table structure for table `states` */
 
@@ -572,12 +599,13 @@ CREATE TABLE `users` (
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `users_role_id_foreign` (`role_id`),
   CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`role_id`,`name`,`email`,`avatar`,`email_verified_at`,`password`,`remember_token`,`settings`,`created_at`,`updated_at`) values 
-(1,1,'admin','admin@localhost.com','users/default.png',NULL,'$2y$10$NPUAya3Bu7i5I/TT.vfOhuLOorchR/tZcVo1t5LMTge90IBT3sGDi',NULL,NULL,'2022-11-18 00:22:07','2022-11-18 00:22:07');
+(1,1,'admin','admin@localhost.com','users\\November2022\\H2wHUwM76fbMTzxKnDqa.png',NULL,'$2y$10$NPUAya3Bu7i5I/TT.vfOhuLOorchR/tZcVo1t5LMTge90IBT3sGDi',NULL,'{\"locale\":\"en\"}','2022-11-18 00:22:07','2022-11-18 01:39:34'),
+(2,3,'Administrador Recolector','adminrecolector@localhost.com','users\\November2022\\yEmsLUK582Zh46G6f5o4.png',NULL,'$2y$10$QCysmFZ6SUdzBhAeVKQzEuoMjXMkoohqbH2DVbohxdJ.WYSfsaPQe',NULL,'{\"locale\":\"es\"}','2022-11-18 01:38:04','2022-11-18 01:39:22');
 
 /*Table structure for table `valves` */
 
